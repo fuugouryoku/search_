@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/font-icons.css">
+		<link rel="stylesheet" href="css/iuapmobile.um.css">
+		<link rel="stylesheet" href="css/search/index/from_index.css">
+		<link rel="stylesheet" href="./css/iscroll.css" />
+		<style>
+			#select1_dummy {
+				border: none;
+				padding-left: 10px;
+				color: #555;
+				font-size: 17px;
+			}
+			#select1_dummy:disabled {
+				background: #fff;
+			}
+
+		</style>
+
+		<script src="js/summer.js" ></script>
+		<script src="js/jquery.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui.js" ></script>
+		<script src="js/index.js" ></script>
+		<script src="./js/iscroll.js"></script>
+	</head>
+	<body>
+		<!--导航栏-->
+		<div class="um-header" >
+			<h3>人员检索</h3>
+		</div>
+			<ul class="um-list">
+				<li class="um-list-item">
+					<!--搜索内容-->
+					<div class="um-list-item-inner">
+						<div class="um-list-item-left pl15">
+							年龄
+						</div>
+						<div class="um-list-item-right">
+							<select id="selected_age" class="selected_from">
+								<option value="0">全部</option>
+								<option value="1">20岁以下</option>
+								<option value="2">20~30岁</option>
+								<option value="3">30~40岁</option>
+								<option value="4">40~50岁</option>
+								<option value="5">50岁以上</option>
+							</select>
+						</div>
+					</div>
+				</li>
+				<li class="um-list-item">
+					<div class="um-list-item-inner">
+						<div class="um-list-item-left pl15">
+							学历
+						</div>
+						<div class="um-list-item-right">
+							<select id="selected_education" class="selected_from">
+								<option value="0">全部</option>
+								<option value="1">初中</option>
+								<option value="2">高中</option>
+								<option value="3">大专</option>
+								<option value="4">本科</option>
+								<option value="5">硕士</option>
+								<option value="6">博士</option>
+							</select>
+						</div>
+					</div>
+				</li>
+				<li class="um-list-item">
+					<div class="um-list-item-inner">
+						<div class="um-list-item-left pl15">
+							学校
+						</div>
+						<div class="um-list-item-right">
+							<select id="selected_school" class="selected_from">
+								<option value="0">全部</option>
+								<option value="1">211&nbsp;985院校</option>
+								<option value="2">海外院校</option>
+								<option value="3">一般院校</option>
+							</select>
+						</div>
+					</div>
+				</li>
+				<li class="um-list-item">
+					<div class="um-list-item-inner">
+						<div class="um-list-item-left pl15">
+							专业
+						</div>
+						<div class="um-list-item-right">
+							<input type="text" class="form-control tr" id="major" placeholder="请输入专业名称">
+						</div>
+					</div>
+				</li>
+				<li class="um-list-item">
+					<div class="um-list-item-inner">
+						<div class="um-list-item-left pl15">
+							岗位层级
+						</div>
+						<div class="um-list-item-right">
+							<input type="text" class="form-control tr" id="post" placeholder="请输入岗位名称">
+						</div>
+					</div>
+				</li>
+				<li class="um-list-item">
+					<div class="um-list-item-inner">
+						<div class="um-list-item-left pl15">
+							公司
+						</div>
+						<div class="um-list-item-right">
+							<input type="text" class="form-control tr" id="company" placeholder="请输入公司名称">
+						</div>
+					</div>
+				</li>
+				<li class="um-list-item">
+					<div class="um-list-item-inner">
+						<div class="um-list-item-left pl15">
+							姓名
+						</div>
+						<div class="um-list-item-right">
+							<input type="text" class="form-control tr" id="name" placeholder="请输入姓名">
+						</div>
+					</div>
+				</li>
+
+			</ul>
+
+			<div class="um-row">
+				<button id="submit" class="btn searchbtn">
+					搜索
+				</button>
+			</div>
+
+		<script>
+			$("#submit").click(function() {
+			var age = $("#selected_age").val();
+			var education = $("#selected_education").val();
+			var school = $("#selected_school").val();
+			var major = $("#major").val();
+			var post = $("#post").val();
+			var company = $("#company").val();
+			var name = $("#name").val();
+			var para = "?age="+age+"&education="+education+"&school="+school+"&major="+major+"&post="+post+"&company="+company+"&name="+name;
+			var url = "./sonView/list.html" ;
+			para = encodeURI(para);
+			  window.location.href = url+para;
+				
+			});
+
+		</script>
+	</body>
+</html>

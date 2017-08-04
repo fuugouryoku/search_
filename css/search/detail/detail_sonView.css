@@ -1,0 +1,17 @@
+.um-label {
+  font-weight: normal;
+  background-color: #FFFFFF;
+  padding-left: 15px;
+  padding-right: 25px;
+  max-width: none;
+  height: 30px;
+  overflow: hidden;
+}
+.jbxx_label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+}

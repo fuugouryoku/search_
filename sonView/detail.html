@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/iuapmobile.um.css">
+		<link rel="stylesheet" href="../css/font-icons.css">
+		<link rel="stylesheet" href="../css/search/detail/detail_sonView.css">
+		<link rel="stylesheet" type="text/css" href="../css/iuapmobile.um.listgroup-2.7.0.css">
+
+		<script src="../js/summer.js" ></script>
+		<script src="../js/jquery.min.js" ></script>
+		<script src="../js/Frameworks/iuapmobile.frameworks.ui.js" ></script>
+		<script src='../js/sonDetail.js'></script>
+		<script type="text/javascript" src="../js/knockout-2.2.0.js"></script>
+		<script type="text/javascript" src="../js/Frameworks/iuapmobile.frameworks.listgroup-2.7.0.js"></script>
+	</head>
+	<body>
+		<div class="um-win" id="index" data-bind="foreach:datas">
+			<div class="um-header" id='header'>
+				<a href="javascript:void(0)" id="navback" onclick="navback()" class="um-back"></a>
+				<h3 id="h-title">详细信息</h3>
+			</div>
+			<div class="um-content">
+				<div    class="um-header um-header-personal">
+					<p class="tc pt15">
+						<img class="um-circle" height=60 width=60 data-bind="attr:{'src': row.img}" alt="...">
+					</p>
+					<p class="tc  um-white">
+						<span data-bind="text:row.name">
+					</p>
+					<p class="tc um-white">
+						<span data-bind="text:row.company">
+					</p>
+				</div>
+
+				<div class="um-listgroup-wrap" id="listgroup">
+					<ul class="um-listgroup" >
+						<li class="um-listgroup-group">
+							<a class="um-box-vc um-listgroup-title"> <span class="um-listgroup-icon"> <i class="ti-angle-down"></i> </span> <span data-bind="text:title.jbxx"> </span> </a>
+							<ul class="um-list  um-no-active">
+								<li class="um-listgroup-row">
+									<div class="um-list-item-inner">
+										<div class="um-list-item-body">
+
+											<label class="um-label jbxx_label">
+												<div>
+													性别
+												</div>
+												<div>
+													<p  class="form-control tr">
+														<span data-bind="text:row.sex"></span>
+													</p>
+												</div> </label>
+											<label class="um-label jbxx_label">
+												<div>
+													年龄
+												</div>
+												<div>
+													<p  class="form-control tr">
+														<span data-bind="text:row.age"></span>
+													</p>
+												</div> </label>
+											<label class="um-label jbxx_label">
+												<div>
+													电话号码
+												</div>
+												<div>
+													<p  class="form-control tr">
+														<span data-bind="text:row.phone"></span>
+													</p>
+												</div> </label>
+											<label class="um-label jbxx_label">
+												<div>
+													地址
+												</div>
+												<div>
+													<p  class="form-control tr">
+														<span data-bind="text:row.address"></span>
+													</p>
+												</div> </label>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="um-listgroup-group">
+							<a class="um-box-vc um-listgroup-title"> <span class="um-listgroup-icon"> <i class="ti-angle-down"></i> </span> <span data-bind="text:title.xlxx"> </span> </a>
+							<ul class="um-list  um-no-active">
+								<li class="um-listgroup-row">
+									<div class="um-list-item-inner">
+										<div class="um-list-item-body">
+
+											<label class="um-label jbxx_label">
+												<div>
+													学历
+												</div>
+												<div>
+													<p  class="form-control tr">
+														<span data-bind="text:row.major"></span>
+													</p>
+												</div> </label>
+											<label class="um-label jbxx_label">
+												<div>
+													毕业院校
+												</div>
+												<div>
+													<p  class="form-control tr">
+														<span data-bind="text:row.school"></span>
+													</p>
+												</div> </label>
+											<label class="um-label jbxx_label">
+												<div>
+													专业
+												</div>
+												<div>
+													<p  class="form-control tr">
+														<span data-bind="text:row.education"></span>
+													</p>
+												</div> </label>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="um-listgroup-group">
+							<a class="um-box-vc um-listgroup-title"> <span class="um-listgroup-icon"> <i class="ti-angle-down"></i> </span> <span data-bind="text:title.gzxx"> </span> </a>
+							<ul class="um-list  um-no-active">
+								<li class="um-listgroup-row">
+									<div class="um-list-item-inner">
+										<div class="um-list-item-body">
+
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="um-listgroup-group">
+							<a class="um-box-vc um-listgroup-title"> <span class="um-listgroup-icon"> <i class="ti-angle-down"></i> </span> <span data-bind="text:title.llxx"> </span> </a>
+							<ul class="um-list  um-no-active">
+								<li class="um-listgroup-row">
+									<div class="um-list-item-inner">
+										<div class="um-list-item-body">
+
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="um-listgroup-group">
+							<a class="um-box-vc um-listgroup-title"> <span class="um-listgroup-icon"> <i class="ti-angle-down"></i> </span> <span data-bind="text:title.pj"> </span> </a>
+							<ul class="um-list  um-no-active">
+								<li class="um-listgroup-row">
+									<div class="um-list-item-inner">
+										<div class="um-list-item-body">
+
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			function navback() {
+				
+					$("#iframe", window.parent.document).animate({height:0+"px"},300,function(){ 
+						$("#iframe",window.parent.document).css('display','none'); 
+						$("#header_nav",window.parent.document).css('display','block');
+						$("#content",window.parent.document).css('display','block');  
+      					  $("#content",window.parent.document).animate({opacity:1},300,function(){ 
+
+      					 
+      					 
+							$("#detail",window.parent.document).attr("src","");
+
+    					})
+
+    					})
+			}
+
+			$(function() {
+			
+			(function($) {
+					$.getUrlParam = function(name) {
+						var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+						var urldata = window.location.search;
+						urldata= decodeURI(urldata);
+						var r = urldata.substr(1).match(reg);
+						if (r != null){
+							return unescape(r[2]);
+							}
+						return null;
+					}
+				})(jQuery);
+				
+				var id = $.getUrlParam('id');
+				//Knockout数据绑定
+				var ViewModel = function() {
+				};
+				var jsonArray = [{
+					"title" : {
+						"jbxx" : "基本信息",
+						"xlxx" : "学历信息",
+						"gzxx" : "工作信息",
+						"llxx" : "履历信息",
+						"pj" : "考核信息"
+					},
+					"row" : {
+						"name" : "张三",
+						"age" : "20",
+						"phone" : "15200000000",
+						"address" : "中国北京",
+						"sex" : "男",
+						"company" : "***公司",
+						"img" : "../img/user.png",
+						"school" : "XX大学",
+						"education" : "硕士",
+						"major" : "公共管理"
+					}
+				}];
+				var viewModel = new ViewModel(jsonArray);
+				viewModel.datas = ko.observableArray(jsonArray);
+				ko.applyBindings(viewModel);
+				//构造控件实例
+				var listgroup = UM.listgroup("#listgroup");
+				//添加控件方法
+				/* listgroup.on("pullDown", function(sender) {
+				 //这是可以编写列表下拉加载逻辑，参数sender即为当前列表实例对象
+				 /* var item = {
+
+				 };
+				 viewModel.datas.unshift(item);
+				 sender.refresh();
+				 });
+				 listgroup.on("pullUp", function(sender) {
+				 //这是可以编写列表上拉刷新逻辑，参数sender即为当前列表实例对象
+				 var item = {
+
+				 };
+				 viewModel.datas.push(item);
+				 sender.refresh();
+				 });
+				 /*listgroup.on("itemSwipeLeft", function(sender, args) {
+				 //这里可以处理行左滑事件，参数sender即为当前列表实例对象，args对象有4个属性，即groupIndex(当前行所在分组的索引),childIndex(当前行在所在分组内的索引),rowIndex(当前行在整个列表中的行索引),$target(目标行的jquery对象)
+				 //sender.showItemMenu(args.$target);
+				 });
+				 listgroup.on("itemDelete", function(sender, args) {
+				 //这是可以编写行删除逻辑，参数sender即为当前列表实例对象，args对象有4个属性，即groupIndex(当前行所在分组的索引),childIndex(当前行在所在分组内的索引),rowIndex(当前行在整个列表中的行索引),$target(目标行的jquery对象)
+				 /* args.$target.slideUp(500,function(){
+
+				 });
+				 });
+				 listgroup.on("itemClick", function(sender, args) {
+				 //这里可以处理行点击事件，参数sender即为当前列表实例对象，args对象有4个属性，即groupIndex(当前行所在分组的索引),childIndex(当前行在所在分组内的索引),rowIndex(当前行在整个列表中的行索引),$target(目标行的jquery对象)
+				 // alert("您点击的是第" + (args.groupIndex+1) + "分组,第" + (args.childIndex+1) + "行");
+				 });
+				 listgroup.on("tapHold", function() {
+				 //这里可以处理长按事件;
+				 //console.log("您刚才长按了列表！");
+				 });*/
+			});
+
+		</script>
+	</body>
+</html>

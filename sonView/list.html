@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/iuapmobile.um.css">
+		<link rel="stylesheet" href="../css/font-icons.css">
+		<link rel="stylesheet" href="../css/search/list/list_sonView.css">
+		<link rel="stylesheet" type="text/css" href="../css/iuapmobile.um.listview.css">
+		<script src="../js/knockout.js"></script>
+		<script src="../js/summer.js" ></script>
+		<script src="../js/jquery.min.js" ></script>
+		<script src="../js/Frameworks/iuapmobile.frameworks.ui.js" ></script>
+
+		<script src="../js/Frameworks/iuapmobile.frameworks.listview.js"></script>
+		<style>
+			.msg-info {
+				position: relative;
+			}
+			.msg-info .um-badge {
+				position: absolute;
+				right: -10px;
+				font-size: 12px;
+			}
+			.msg-header {
+				width: 40px;
+				height: 40px;
+				line-height: 40px;
+				background: blue;
+				border-radius: 50%;
+				text-align: center;
+				color: white;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="um-win" id="index">
+			<div class="um-header" id="header_nav">
+				<a href="javascript:history.back(-1);"   class="um-back"></a>
+				<h3>搜索列表</h3>
+			</div>
+
+			<div id="content" class="um-content">
+
+				<div class="um-listview-wrap" id="listview">
+					<ul class="um-list um-no-active" data-bind="foreach: data">
+						<li class="um-listview-row">
+							<a href="#" class="um-list-item um-swipe-action um-no-icon">
+							<div class="um-list-item-media msg-info">
+								<img alt="" data-bind="attr:{'src': img}" width=50>
+							</div>
+							<div class="um-list-item-inner">
+								<div class="um-list-item-body">
+									<h4 class="um-media-heading fb f16 um-text-overflow" data-bind="text:name"></h4>
+									<p class="um-gray f14 um-text-overflow" data-bind="text:company"></p>
+								</div>
+								<div class="pr10">
+									<span class="um-gray f12" data-bind="text:age"></span>
+								</div>
+							</div> </a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="de_iframe" id="iframe">
+				<iframe id="detail"></iframe>
+			</div>
+		</div>
+
+		<script>
+			var ViewModel = function() {
+			};
+			var viewModel = new ViewModel();
+			var jsonArray = [];
+
+			$(document).ready(function() {
+				//获取url参数
+				(function($) {
+					$.getUrlParam = function(name) {
+						var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+						var urldata = window.location.search;
+						urldata = decodeURI(urldata);
+						var r = urldata.substr(1).match(reg);
+						if (r != null) {
+							return unescape(r[2]);
+						}
+						return null;
+					}
+				})(jQuery);
+
+				var age = $.getUrlParam('age');
+				var education = $.getUrlParam('education');
+				var school = $.getUrlParam('school');
+				var major = $.getUrlParam('major');
+				var post = $.getUrlParam('post');
+				var company = $.getUrlParam('company');
+				var name = $.getUrlParam('name');
+				var data_s = {
+					"age" : age,
+					"education" : education,
+					"school" : school,
+					"major" : major,
+					"post" : post,
+					"company" : company,
+					"name" : name
+
+				}
+
+				//Knockout绑定
+				for (var i = 0,
+				    len = 10; i < len; i++) {
+					jsonArray.push({
+						"id" : i,
+						"name" : "张三" + i,
+						"img" : "../img/sonView/human.png",
+						"company" : "*****公司",
+						"age" : "20"
+					});
+				}
+
+				viewModel.data = ko.observableArray(jsonArray);
+				ko.applyBindings(viewModel);
+
+				//构造控件实例
+				var listview = UM.listview("#listview");
+
+				listview.on("itemClick", function(sender, args) {
+					//这里可以处理行点击事件，参数sender即为当前列表实例对象，args对象有2个属性，即rowIndex(行索引)和$target(目标行的jquery对象)
+					var id = jsonArray[args.rowIndex].id;
+					var url = "../sonView/detail.html";
+					var para = "?id=" + id;
+					//window.location.href = url+para;
+					var nowheight = $(document).height();
+					var windowheight = $(window).height();
+					var windowwidth = $(window).width();
+
+					$("#iframe").css('height', 0 + "px");
+					$("#iframe").css('width', windowwidth + "px");
+					$("#iframe").css('display', 'block');
+					$("#content").animate({
+						opacity : 0
+					}, 300, function() {
+
+						$("#content").css('display', 'none');
+						$("#header_nav").css('display', 'none');
+
+						$("#iframe").offset({
+							top : 0,
+							left : 0
+						});
+						$("#iframe").animate({
+							height : windowheight + "px"
+						}, 300, function() {
+							$("#detail").attr("src", url + para);
+
+						})
+					})
+				});
+				listview.on('pullUp', function(sender) {
+					//这是可以编写列表上拉刷新逻辑，参数sender即为当前列表实例对象
+					var row = {
+						"name" : "张三" + i,
+						"img" : "../img/sonView/human.png",
+						"company" : "*****公司",
+						"age" : "20"
+					};
+
+					viewModel.data.push(row);
+					viewModel.data.push(row);
+					sender.refresh();
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

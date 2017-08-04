@@ -1,0 +1,18 @@
+
+.selected_from {
+        font-size:17px;
+		border: 0; 
+		background: transparent;
+	    -webkit-appearance:none;
+	    padding-right: 0px;
+	    position:relative; 
+	    right:-5px;
+	    direction:rtl;
+
+}
+.searchbtn {
+  margin-top:20px;
+  color: #fff;
+  background-color: #ADADAD;
+  border-color: #ADADAD;
+}
